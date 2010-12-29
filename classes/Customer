@@ -1,0 +1,12 @@
+<?php
+
+class Customer{
+	
+	public function addUser($name, $address, $email, $phone, $inden, $password){
+		
+	}
+	
+	public function getInfo($userID){
+		
+	}
+}
