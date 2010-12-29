@@ -1,9 +1,13 @@
 <?php
-include_once 'DB.php';
+include_once dirname(__FILE__)."../config/include.inc.php";
 class Customer{
 	
 	
 	public $id_customer,$name,$address,$email, $phone, $inden , $password;
+	
+	public function __construct(){
+		
+	}
 	public function addUser($_name, $_address, $_email, $_phone, $_inden, $_password){
 		
 		$this->name = $_name;
@@ -42,4 +46,13 @@ class Customer{
 		
 		$db->close();
 	}
+	
+	public static function checkCustomer($bankAccount){
+		return true;
+	}
+	
+	public static function getSecureNumber($bankAccount){
+		return '426258731964017747';
+	}
+	
 }
