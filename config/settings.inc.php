@@ -9,6 +9,5 @@ define('_DB_PASSWD_', 'root');
 define('_DB_TYPE_', 'MySQL');
 define('_COOKIE_KEY_', 'S29prYHzBtUVeJYOfz0xD56sc6QE5y5cCurUnysWrz2T4FmysB6cALZJ');
 define('_COOKIE_IV_', 'G2HJvWHC');
-define('_PS_VERSION_', '1.3.2.3');
 
 ?>
