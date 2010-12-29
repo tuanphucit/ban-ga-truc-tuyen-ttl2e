@@ -6,40 +6,33 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/chuyenkhoan.css" />
 </head>
 <body>
+
+<?php 
+	include_once dirname(__FILE__)."../config/include.inc.php";
+	$account = new Account();
+?>
 <form method="post">
 <table class="tbllisting hasborder" width="100%" border="1">
 	<caption>Chuyển khoản</caption>
 
 	<tr>
 
-		<td class="tdlabel"><label
-			for="ctl00_Content_Transfer_Control_AccountList"
-			id="ctl00_Content_Transfer_Control_DebitAccountLabel">Tài khoản trích
-		nợ</label></td>
+		<td class="tdlabel"><label>Tài khoản trích nợ</label></td>
 
-		<td><select name="ctl00$Content$Transfer_Control$AccountList"
-			id="ctl00_Content_Transfer_Control_AccountList" class="slt_med">
-
+		<td><select>
 			<option value="0361001789387">0361001789387</option>
-
-
-
 		</select></td>
 
 	</tr>
 
 	<tr>
 
-		<td class="tdlabel"><label for="ctl00_Content_Transfer_Control_TKP"
-			id="ctl00_Content_Transfer_Control_CreditAccountLabel">Tài khoản ghi
-		có</label></td>
+		<td class="tdlabel"><label>Tài khoản ghi có</label></td>
 
-		<td><input name="ctl00$Content$Transfer_Control$TKP" type="text"
-			maxlength="13" id="ctl00_Content_Transfer_Control_TKP" /> <span
-			id="ctl00_Content_Transfer_Control_CreditAccountRequiredValidator"
-			style="color: Red; display: none;">*</span> <span
-			id="ctl00_Content_Transfer_Control_CreditAccountValidator"
-			style="color: Red; display: none;">Số tài khoản không hợp lệ!</span>
+		<td><input name="taikhoanghi" type="text"
+			maxlength="13" /> 
+		<span style="color: Red; display: none;">*</span> 
+		<span	style="color: Red; display: none;">Số tài khoản không hợp lệ!</span>
 
 		</td>
 
@@ -47,53 +40,38 @@
 
 	<tr>
 
-		<td class="tdlabel"><label
-			for="ctl00_Content_Transfer_Control_AmountText"
-			id="ctl00_Content_Transfer_Control_AmountLabel">Số tiền</label></td>
+		<td class="tdlabel"><label>Số tiền</label></td>
 
-		<td><input name="ctl00$Content$Transfer_Control$AmountText"
-			type="text" maxlength="18"
-			id="ctl00_Content_Transfer_Control_AmountText" /> <span
-			id="ctl00_Content_Transfer_Control_AmountRequiredValidator"
-			style="color: Red; display: none;">*</span></td>
+		<td><input name="amount" type="text" maxlength="18" /> 
+			<span style="color: Red; display: none;">*</span></td>
 
 	</tr>
 
 	<tr>
 
-		<td class="tdlabel"><label
-			for="ctl00_Content_Transfer_Control_ListFee"
-			id="ctl00_Content_Transfer_Control_ChargeLabel">Phí</label></td>
+		<td class="tdlabel"><label>Phí</label></td>
 
-		<td><select name="ctl00$Content$Transfer_Control$ListFee"
-			id="ctl00_Content_Transfer_Control_ListFee">
+		<td><select name="phi">
 
 			<option selected="selected" value="2">Ph&#237; người chuyển trả</option>
 
 			<option value="1">Ph&#237; người hưởng trả</option>
 
-
-
 		</select></td>
 
 	</tr>
 
 	<tr>
 
-		<td class="tdlabel"><label
-			for="ctl00_Content_Transfer_Control_TransferContent"
-			id="ctl00_Content_Transfer_Control_ContentLabel">Nội dung thanh toán</label>
+		<td class="tdlabel"><label>Nội dung thanh toán</label>
 
 		</td>
 
-		<td><input name="ctl00$Content$Transfer_Control$TransferContent"
+		<td><input name="noidung"
 			type="text" maxlength="117" size="50"
-			id="ctl00_Content_Transfer_Control_TransferContent"
 			style="width: 350px;" /><br />
 
-		<span id="ctl00_Content_Transfer_Control_ContentValidator"
-			style="color: Red; display: none;">Đề nghị quý khách sử dụng tiếng
-		Việt không dấu!</span></td>
+		<span style="color: Red; display: none;">Đề nghị quý khách sử dụng tiếng Việt không dấu!</span></td>
 
 	</tr>
 
