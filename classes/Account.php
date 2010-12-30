@@ -3,7 +3,7 @@
 
 class Account {
 	public $id_account, $id_customer, $balance, $account_number;
-	public function __construct($customerID,$accountID) {
+	public function __construct($customerID,$account_number) {
 		/*TODO
 		 * Khoi tao 1 Account , neu 1 trong 2 gia tri = 0
 		 * thi khoi tao theo gia tri khac co gia tri khac 0
@@ -22,8 +22,8 @@ class Account {
 			}
 			return;
 		}
-		if($accountID !=0){
-			$sql = "select * from account where id_account = '$accountID'";
+		if($account_number !=0){
+			$sql = "select * from account where account_number = '$account_number'";
 			$result = $db->runQuery($sql);
 			while($row = mysql_fetch_array($result,MYSQL_ASSOC )){
 				$this->balance = $row['balance'];
@@ -50,10 +50,10 @@ class Account {
 		$db->runQuery ( $sql );
 		$db->close ();
 	}
-	public function updateBalance($id_account,$newBalance){
+	public function updateBalance($newBalance){
 		$db= new DB();
 		$db->connect();
-		$sql = "update account set balance = '$newBalance' where id_account = '$id_account'";
+		$sql = "update account set balance = '$newBalance' where id_account = '$this->id_account'";
 		$db->runQuery($sql);
 		
 		$db->close();
@@ -71,15 +71,21 @@ class Account {
 		$db->close();
 	}
 	
-	public function transfer($accountID, $amount){
-		
+	public function transfer($accountID, $amount, $log){
+		$date = date('y-m-d H:i:s');
+		if ($this->balance <= $amount)
+			return false;
 		$acc1 = new Account(0, $accountID);
-		$acc1->balance -= $amount;
-		if($acc1->updateBalance($acc1->id_account, $acc1->balance))
-		{
-			$this->balance += $amount;
-			$this->updateBalance($this->id_account, $this->balance);
-		}
+		$this->balance -= $amount;
+		$acc1->balance += $amount;
+		$this->updateBalance($this->balance);	
+		$acc1->updateBalance($acc1->balance);
+		
+		$db = new DB();
+		$sql = "INSERT INTO `bank`.`transaction` (`id_transaction`, `id_account_send`, `id_account_get`, `amount`, `time`, `log`) VALUES (NULL, '{$this->id_customer}', '{$acc1->id_customer}', '{$amount}', NOW(), '{$log}');";
+		$db->runQuery($sql);
+		$db->close();
+		return true;
 		
 	}
 }

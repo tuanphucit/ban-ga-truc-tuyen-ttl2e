@@ -7,8 +7,8 @@
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#message_success').hide();
-		$('#message_fail').hide();
+		$('.message_success').hide();
+		$('.message_fail').hide();
 	}	
 </script>
 </head>
@@ -144,13 +144,42 @@
 </form>
 <div class="message_success">a</div>
 <div class="message_fail">b</div>  
+<script type="text/javascript">
+	$('.message_success').hide();
+	$('.message_fail').hide();
+</script>
 <?php
 	if (isset($_POST['taikhoanghi']) && isset($_POST['amount'])){
 		$taikhoanghi = $_POST['taikhoanghi'];
-		$amout       = $_POST['amount'];
+		$amount       = $_POST['amount'];
+		$log = '';
 		
+		if (isset($_POST['noidung']))
+			$log = $_POST['noidung'];
 		
-		echo $taikhoanghi.$amout;
+		if (!Account::checkAccount($taikhoanghi)){
+			echo "
+				<script type='text/javascript'>
+					$('.message_fail').text('Không tồn tại tài khoản').show();
+				</script>
+			";
+			return;
+		}
+		if (!$account->transfer($taikhoanghi, $amount, $log)){
+			echo "
+				<script type='text/javascript'>
+					$('.message_fail').text('Giao dịch không thành công').show();
+				</script>
+			";
+			return;
+		}
+	
+		echo "
+			<script type='text/javascript'>
+				$('.message_success').text('Giao dịch hoàn tất').show();
+			</script>
+		";
+		
 	}
 ?>
 </body>
