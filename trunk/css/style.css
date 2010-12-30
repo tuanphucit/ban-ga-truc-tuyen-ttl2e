@@ -23,6 +23,22 @@ header{}
 #top_nav {float:right;padding:41px 30px 0 0}
 #top_nav li {float:left;background:url(../images/line_top2.gif) right 0 no-repeat;margin-right:20px;padding:2px 21px 3px 0}
 #top_nav .bg_none {background:none;padding-right:0;margin:0}
+#menu {width:245px;float:left;margin-top:27px;margin-right:2px}
+#menu li {display:block;margin-bottom:2px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;behavior:url(js/PIE.htc);position:relative}
+#menu li a {display:block;font-size:16px;text-transform:uppercase;color:#fff;line-height:43px;padding-left:36px;font-weight:300;text-decoration:none}
+#menu li a:hover, #menu #menu_active a {font-weight:900;color:black}
+#menu .nav1 {background:url(../images/menu_bg1.gif) top repeat-x #0f356b}
+#menu .nav1 a {background:url(../images/menu_marker1.gif) 21px 18px no-repeat}
+#menu .nav2 {background:url(../images/menu_bg2.gif) top repeat-x #0f696b}
+#menu .nav2 a {background:url(../images/menu_marker2.gif) 21px 18px no-repeat}
+#menu .nav3 {background:url(../images/menu_bg3.gif) top repeat-x #0f696b}
+#menu .nav3 a {background:url(../images/menu_marker3.gif) 21px 18px no-repeat}
+#menu .nav4 {background:url(../images/menu_bg4.gif) top repeat-x #6b450f}
+#menu .nav4 a {background:url(../images/menu_marker4.gif) 21px 18px no-repeat}
+#menu .nav5 {background:url(../images/menu_bg5.gif) top repeat-x #6b110f}
+#menu .nav5 a {background:url(../images/menu_marker5.gif) 21px 18px no-repeat}
+#menu .nav6 {background:url(../images/menu_bg6.gif) top repeat-x #3f0f6b}
+#menu .nav6 a {background:url(../images/menu_marker6.gif) 21px 18px no-repeat}
 #login{
     background: url(../images/login.jpg) no-repeat scroll 0 0 transparent;
     float: left;
@@ -43,7 +59,7 @@ header{}
 .boxes .nav3 a {color:#9e1916}
 .line_right {padding-right:14px;background:url(../images/line_ver1.gif) right 3px no-repeat;margin-right:10px}
 /* content */
-#content {width:100%;overflow:hidden;padding-bottom:50px}
+#content {width:100%;overflow:hidden;padding-top:20px;}
 #content2 {width:100%;overflow:hidden;padding-bottom:33px}
 .pad_left1 {padding-left:20px}
 .pad_left2 {padding-left:60px}
@@ -83,3 +99,137 @@ footer a {color:#fff}
 
 #ContactForm .input {float:right;width:429px;height:17px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:2px 5px;color:#000;font:13px Arial, Helvetica, sans-serif}
 #ContactForm textarea {overflow:auto;float:right;width:429px;height:203px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:2px 5px;color:#000;font:13px Arial, Helvetica, sans-serif}
+
+/*slide*/
+
+#slide-holder {
+width : 680px;
+height : 264px;
+border:none;
+float:right;
+z-index:-1;
+margin-top:28px;
+}
+#slide-holder div#slide-runner {
+width : 680px;
+height : 264px;
+overflow : hidden;
+position : relative;
+border:none;
+}
+#slide-holder img {
+margin : 0;
+display : none;
+position : absolute;
+border:none;
+}
+#slide-holder div#slide-controls {
+left : 0;
+bottom: 0;
+width : 680px;
+height : 46px;
+display : none;
+position : absolute;
+}
+#slide-holder div#slide-controls p.text {
+float : left;
+color : white;
+font: normal 15px Arial, Helvetica, sans-serif;
+display : inline;
+font-size : 14px;
+line-height : 16px;
+margin : 15px 0 0 20px;
+}
+#slide-holder div#slide-controls p#slide-nav {
+float : right;
+height : 24px;
+display : inline;
+margin : 11px 15px 0 0;
+}
+#slide-holder div#slide-controls p#slide-nav a {
+float : left;
+width : 24px;
+height : 24px;
+display : inline;
+font-size : 11px;
+margin : 0 5px 0 0;
+line-height : 24px;
+font-weight : bold;
+text-align : center;
+text-decoration : none;
+background-position : 0 0;
+background-repeat : no-repeat;
+}
+#slide-holder div#slide-controls p#slide-nav a.on {
+background-position : 0 -24px;
+}
+#slide-holder div#slide-controls p#slide-nav a {
+background-image : url(../images/silde-nav.png);
+
+}
+
+/*cart*/
+.jcart { 
+			background:none repeat scroll 0 0 #FFFFFF;
+			border:2px dashed #66CC66;
+			display:block;
+		    float:left;
+			height:300px;
+			width:300px;
+			margin:-10px 30px 20px 0;
+			padding-top:20px;
+			text-align:center;
+}
+.jcart ul { margin:0; list-style:none; padding:0 20px; text-align:left; }
+.jcart fieldset { border:0; }
+.jcart strong { color:#000066; }
+.jcart .button { margin:20px; padding:5px; }
+
+.clear { clear:both; }
+
+.product{
+width:220px;
+margin:10px 20px 0 20px;
+}
+
+.widget .content{
+    background: #ffffff;
+	padding: 0px 20px 20px 20px;
+	margin-bottom:20px;
+}
+.widget h3{
+	height: 35px;
+	background: #663366;
+	padding:5px 0 0 12px;
+	text-align: center;
+	letter-spacing: -.5px;
+	color: #FFFFFF;
+	margin-top:20px;
+}
+
+.widget ul {
+padding-top:20px;
+}
+.widget li {
+	line-height: 35px;
+	border-bottom: 1px dashed #D1D1D1;
+	padding-left: 3px;
+	font-size: 14px;
+}
+
+.widget li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+	
+}
+
+
+.widget p {
+	margin: 0px 0px 20px 0px;
+	padding: 10px 20px 20px 20px;
+	background: #FFFFFF;
+	text-align: justify;
+}
