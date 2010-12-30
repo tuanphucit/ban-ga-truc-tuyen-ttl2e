@@ -29,7 +29,7 @@ class Account {
 				$this->balance = $row['balance'];
 				$this->account_number = $row['account_number'];
 				$this->id_customer = $row['id_customer'];
-				$this->id_account = $row['account'];
+				$this->id_account = $row['id_account'];
 			}
 			}
 		
