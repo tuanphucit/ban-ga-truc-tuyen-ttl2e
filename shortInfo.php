@@ -13,12 +13,12 @@
 <?php
 	include_once dirname(__FILE__)."../config/include.inc.php";
 	session_start();
-	$customerID = $_SESSION['user'];
-	$account = new Account($customerID,0);
+	$customer_bank_number = $_SESSION['user'];
+	$account = new Account($customer_bank_number,0);
 	$account_number = $account->account_number;
 	$balance        = $account->balance;
 	$customer       = new Customer();
-	$customer->getInfo($customerID,0);
+	$customer->getInfo($customer_bank_number,0);
 ?>
 <div class="form_login">
 <table width="170px" border="0" cellpadding="0" cellspacing="0">
@@ -42,6 +42,11 @@
 			<tr>
 
 				<td height="25" class="form-content-text"><b>Loại tài khoản:</b> Cá nhân</td>
+
+			</tr>
+			<tr>
+
+				<td height="25" class="form-content-text"><b>Số tài khoản:</b> <?php echo $account_number;?></td>
 
 			</tr>
 			<tr>

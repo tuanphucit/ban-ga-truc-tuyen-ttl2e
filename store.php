@@ -1,7 +1,7 @@
 <?php
 
 // INCLUDE JCART BEFORE SESSION START
-include 'jcart/jcart.php';
+include '../jcart/jcart.php';
 
 // START SESSION
 session_start();
