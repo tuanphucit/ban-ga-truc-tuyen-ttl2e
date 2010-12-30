@@ -8,7 +8,34 @@ class Customer{
 	public function __construct(){
 		
 	}
-	public function addUser($_name, $_address, $_email, $_phone,$pu_key,$pr_key , $_password,$_time,$_inden){
+	public function getKey(){
+	//	while(true){
+			
+		$rsa = new RSA(0,0);
+		$rsa->genarateKey();
+		$e = ($rsa->e);
+		$d = ($rsa->d);
+		$this->pu_key = (int)$d->toString();
+		$this->pr_key = (int)$e->toString();
+		$db = new DB();
+
+		$db->connect();
+		$sql1 = "select * from customer where public_key ='$d->toString()'";
+		$sql2 = "select * from customer where private_key = '$e->toString()'";
+		$result1 = $db->runQuery($sql1);
+		$result2 = $db->runQuery($sql2);
+		if((mysql_num_rows($result1)=="")&&(mysql_num_rows($result2)=="")){
+			echo "Tao khoa thanh cong<br />";
+			$this->pu_key = (int)$d->toString();
+			$this->pr_key = (int)$e->toString();
+			break;
+		$db->close();
+		}
+		
+		}
+		
+	//}
+	public function addUser($_name, $_address, $_email, $_phone,$_password,$_time,$_inden){
 		
 		$this->name = $_name;
 		$this->address = $_address;
@@ -17,14 +44,16 @@ class Customer{
 		$this->inden = $_inden;
 		$this->password = $_password;
 		
+		$this->getKey();
+	
 		// Get key
-		$rsa = new RSA(0,0);
+		/*$rsa = new RSA(0,0);
 		$rsa->genarateKey();
 		$e = ($rsa->e);
 		$d = ($rsa->d);
 		$this->pu_key = $d->toString();
 		$this->pr_key = $e->toString();
-		
+		*/
 		$this->time = $_time;
 		
 		$db = new DB();
