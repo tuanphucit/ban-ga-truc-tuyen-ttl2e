@@ -16,8 +16,15 @@ class Customer{
 		$this->phone = $_phone;
 		$this->inden = $_inden;
 		$this->password = $_password;
-		$this->pu_key = $pu_key;
-		$this->pr_key =$pr_key;
+		
+		// Get key
+		$rsa = new RSA(0,0);
+		$rsa->genarateKey();
+		$e = ($rsa->e);
+		$d = ($rsa->d);
+		$this->pu_key = $d->toString();
+		$this->pr_key = $e->toString();
+		
 		$this->time = $_time;
 		
 		$db = new DB();

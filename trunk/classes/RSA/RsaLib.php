@@ -18,6 +18,9 @@
 			$this->q = new Math_BigInteger();
 			$this->q = $this->p->randomPrime(new Math_BigInteger(0x7FFF),new Math_BigInteger(0x7FFFFFFF));
 			
+			$this->p = new Math_BigInteger('26083');
+			$this->q = new Math_BigInteger('10267');
+			
 			$p = $this->p->subtract(new Math_BigInteger(1));
 			$q = $this->q->subtract(new Math_BigInteger(1));
 			$this->n = $this->p->multiply($this->q);
