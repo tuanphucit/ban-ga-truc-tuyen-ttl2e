@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	$customerID = $_SESSION['user'];
+	if (isset($customerID)){
+		die ("Welcome {$customerID}");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +14,8 @@
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
- 
+  <link rel="stylesheet" type="text/css" href="css/keyboard.css">
+  <script type="text/javascript" src="js/keyboard.js" charset="UTF-8"></script>
  
   <!--[if lt IE 9]>
     <script type="text/javascript" src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script>
@@ -35,15 +44,34 @@
 					<div id="login">
 					   <form id="LoginForm" action="">
 					   <h3>Đăng nhập hệ thống</h3>
-								<h5>Username:</h5><div class="bg"><input type="text" class="input" ></div>
+								<h5>Username:</h5><div class="bg"><input type="text" name="usr" class="input" ></div>
 								<br>
-								<h5>Password:</h5><div class="bg"><input type="password" class="input" ></div>
-								<br>
-						<div style="margin-top:20px">	
-						    <a href="#" class="button" onClick="document.getElementById('LoginForm').submit()">Login</a><br><br>
+								<h5>Password:</h5><div class="bg"><input type="password" name="pwd" style="float:left;width:160px;height:17px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:5px 0 5px 0" class="keyboardInput"></div>
+							
+						    <!--<a href="#" class="button" onClick="document.getElementById('LoginForm').submit()">Login</a>--><br><br>
+							<input class="button" style="margin:-8px 0 5px 0" type="submit" value="login" /><br>
 							<a href="#">Quên mật khẩu | </a><a href="register.php">Đăng kí mới</a>
-						</div>
+						
 					   </form>
+<?php
+	include_once dirname ( __FILE__ ) . "../config/include.inc.php";
+	$account = new Account ();
+	if (isset($_POST['usr'])){
+	$usr = $_POST['usr'];
+	$pwd = $_POST['pwd'];
+	$customer = new Customer();
+	$customer->getInfo(0,$usr);
+	//Login Success
+	if ($customer->password == $pwd){
+		$_SESSION['user'] = $customer->id_customer;
+		echo "Login Success {$customer->id_customer}";
+	}
+	//Login Fail
+	else{
+		echo "Login Fail";
+	}
+}
+?>
 					
 					</div><!-- end Login form -->
 					<nav>
@@ -63,7 +91,7 @@
 					<h2>Chính sách bảo mật </h2>
 					<p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauri asefgllus porta. Cum sociis natoque penatibus edfit magnis dis parturient montes, nascetur ridiculus musulla dusce feugiat males.</p>
 					<div class="wrapper">
-						<figure class="left marg_right1"><img src="images/secure.jpg" alt=""></figure>
+						<figure class="left marg_right1"><img src="images/secure.png" alt=""></figure>
 						<p>Lorem ipsum dolor sit amet, consec tetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis part urient natque penatibus montes.</p>
 					</div>
 					<ul class="list1 pad_bot1">
