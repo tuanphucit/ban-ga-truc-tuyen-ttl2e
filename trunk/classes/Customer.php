@@ -94,8 +94,4 @@ class Customer{
 		$db->close();
 	}
 	
-	public static function getSecureNumber($bankAccount){
-		return '426258731964017747';
-	}
-	
 }

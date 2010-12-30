@@ -108,8 +108,8 @@ else
 			// REDIRECT TO PAYPAL WITH MERCHANT ID AND CART CONTENTS
 			$rsa = new RSA(0, 0);
 			$en  = $rsa->encrypt($_POST["bank"], new Math_BigInteger($jcart['secure_number']), new Math_BigInteger($jcart['bank_number']));
-			$customerID = $en;
-			header('Location: http://localhost/B@nk/cart.php?cmd=_cart&upload=1&customerID='.$customerID.'&business=' . $jcart['paypal_id'] . $items_query_string);
+			$customer_bank_number = $en;
+			header('Location: http://localhost/B@nk/cart.php?cmd=_cart&upload=1&customerID='.$customer_bank_number.'&business=' . $jcart['paypal_id'] . $items_query_string);
 			exit;
 			}
 		else

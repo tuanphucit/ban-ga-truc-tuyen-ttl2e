@@ -8,10 +8,10 @@ $jcart['item_name']		= 'my-item-name';		// ITEM NAME
 $jcart['item_price']	= 'my-item-price';		// ITEM PRICE
 $jcart['item_qty']		= 'my-item-qty';		// ITEM QTY
 $jcart['item_add']		= 'my-add-button';		// ADD-TO-CART BUTTON
-$jcart['bank_number']   = '483639716507806927';
+$jcart['bank_number']   = '267794161';
 
-$jcart['paypal_id']		= '1234567890';
-$jcart['secure_number'] = '59';
+$jcart['paypal_id']		= '3';
+$jcart['secure_number'] = '41';
 
 // PATH TO THE DIRECTORY CONTAINING JCART FILES
 $jcart['path'] = '/cart/jcart/';
@@ -19,7 +19,6 @@ $jcart['path'] = '/cart/jcart/';
 ///////////////////////////////////////////////////////////////////////
 // OPTIONAL SETTINGS
 
-// OVERRIDE DEFAULT CART TEXT
 // OVERRIDE DEFAULT CART TEXT
 $jcart['text']['cart_title']				= 'Giỏ hàng';		// Shopping Cart
 $jcart['text']['single_item']				= 'Sản phẩm';		// Item

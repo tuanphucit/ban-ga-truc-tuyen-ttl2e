@@ -17,8 +17,7 @@ class Order {
 	
 	public static function addNewOrder($orderInfo, $status, $id_sale, $id_customer, $order_amount){
 		$db = new DB();
-		$query  = "INSERT INTO `bank`.`order` (`id_order`, `order_info`, `status`, `id_transaction`, `id_sale`, `id_customer`, `order_amount`) VALUES (null, '{$orderInfo}', '{$status}', '', '{$id_sale}', '{$id_customer}', '{$order_amount}');";
-		$result = $db->runQuery($query);
+		$query  = "INSERT INTO `bank`.`order` (`id_order`, `order_info`, `status`, `id_transaction`, `id_sale`, `id_customer`, `order_amount`,`time`) VALUES (null, '{$orderInfo}', '{$status}', '', '{$id_sale}', '{$id_customer}', '{$order_amount}', NOW());";
 		$db->runQuery($query);
 		$db->close();
 	}
