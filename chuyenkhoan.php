@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Cart</title>
+<title>Chuyển khoản</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" media="all" href="css/chuyenkhoan.css" />
 </head>
@@ -9,7 +9,18 @@
 
 <?php 
 	include_once dirname(__FILE__)."../config/include.inc.php";
-	$account = new Account();
+	session_start();
+	$customerID = $_SESSION['user'];
+		if (!isset($customerID)){
+			echo "<a href='login.php'>Click here to login</a>";
+			return;
+		}
+	$account = new Account($customerID,0);
+	$account_number = $account->account_number;
+	$balance        = $account->balance;
+	$customer       = new Customer();
+	$customer->getInfo($customerID,0);
+	
 ?>
 <form method="post">
 <table class="tbllisting hasborder" width="100%" border="1">
@@ -20,7 +31,7 @@
 		<td class="tdlabel"><label>Tài khoản trích nợ</label></td>
 
 		<td><select>
-			<option value="0361001789387">0361001789387</option>
+			<option value="<?php echo $account_number;?>"><?php echo $account_number;?></option>
 		</select></td>
 
 	</tr>

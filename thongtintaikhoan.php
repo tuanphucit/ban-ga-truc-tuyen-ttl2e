@@ -13,10 +13,17 @@
 <body>
 
 <?php
-include_once dirname ( __FILE__ ) . "../config/include.inc.php";
-$acc = new Account(0, 2);
-$cus = new Customer();
-$cus->getInfo($acc->id_customer);
+	include_once dirname ( __FILE__ ) . "../config/include.inc.php";session_start();
+	$customerID = $_SESSION['user'];
+		if (!isset($customerID)){
+			echo "<a href='login.php'>Click here to login</a>";
+			return;
+		}
+	$acc = new Account($customerID,0);
+	$account_number = $account->account_number;
+	$balance        = $account->balance;
+	$cus       = new Customer();
+	$cus->getInfo($customerID,0);
 
 	print "<table class=\"tbllisting hasborder\" border=1>";
 	print "<caption>Thông tin tài khoản</caption>";
