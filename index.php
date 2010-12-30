@@ -42,7 +42,7 @@
 				</div>
 				<div class="wrapper">
 					<div id="login">
-					   <form id="LoginForm" action="">
+					   <form id="LoginForm" method="post">
 					   <h3>Đăng nhập hệ thống</h3>
 								<h5>Username:</h5><div class="bg"><input type="text" name="usr" class="input" ></div>
 								<br>
