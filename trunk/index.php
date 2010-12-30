@@ -22,11 +22,11 @@
 			<!--header -->
 			<header>
 				<div class="wrapper">
-					<h1><a href="index.html" id="logo">eTeam</a><span id="slogan">Payment Gateway</span></h1>
+					<h1><a href="index.php" id="logo">eTeam</a><span id="slogan">Payment Gateway</span></h1>
 					<nav>
 						<ul id="top_nav">
-							<li><a href="index.html"><img src="images/img1.gif" alt=""></a></li>
-							<li><a href="contact.html"><img src="images/img2.gif" alt=""></a></li>
+							<li><a href="index.php"><img src="images/img1.gif" alt=""></a></li>
+							<li><a href="contact.php"><img src="images/img2.gif" alt=""></a></li>
 							<li class="bg_none"><a href="about.html"><img src="images/img3.gif" alt=""></a></li>
 						</ul>
 					</nav>
@@ -41,7 +41,7 @@
 								<br>
 						<div style="margin-top:20px">	
 						    <a href="#" class="button" onClick="document.getElementById('LoginForm').submit()">Login</a><br><br>
-							<a href="#">Quên mật khẩu | </a><a href="#">Đăng kí mới</a>
+							<a href="#">Quên mật khẩu | </a><a href="register.php">Đăng kí mới</a>
 						</div>
 					   </form>
 					
