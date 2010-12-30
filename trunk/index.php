@@ -1,11 +1,3 @@
-<?php 
-	session_start();
-	$customerID = $_SESSION['user'];
-	if (isset($customerID)){
-		die ("Welcome {$customerID}");
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +7,7 @@
   <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <link rel="stylesheet" type="text/css" href="css/keyboard.css">
+  <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
   <script type="text/javascript" src="js/keyboard.js" charset="UTF-8"></script>
  
   <!--[if lt IE 9]>
@@ -25,6 +18,7 @@
 </head>
 
 <body id="page1">
+
 <div class="body1">
 <div class="body2">
 		<div class="main">
@@ -53,27 +47,50 @@
 							<a href="#">Quên mật khẩu | </a><a href="register.php">Đăng kí mới</a>
 						
 					   </form>
+					</div><!-- end Login form -->
+
+<?php 
+	session_start();
+	$customerID = $_SESSION['user'];
+	if (isset($customerID)){
+		echo "
+			<script type='text/javascript'>
+			    $('#login').load('shortInfo.php').show();
+			</script>
+		";
+	}
+?>
+
 <?php
 	include_once dirname ( __FILE__ ) . "../config/include.inc.php";
 	$account = new Account ();
 	if (isset($_POST['usr'])){
-	$usr = $_POST['usr'];
+	$email = $_POST['usr'];
 	$pwd = $_POST['pwd'];
+	$pwd = md5($pwd);
 	$customer = new Customer();
-	$customer->getInfo(0,$usr);
+	$customer->getInfo(0,$email);
 	//Login Success
 	if ($customer->password == $pwd){
 		$_SESSION['user'] = $customer->id_customer;
 		echo "Login Success {$customer->id_customer}";
+		echo "
+			<script type='text/javascript'>
+				window.location.reload();
+			</script>
+		";
 	}
 	//Login Fail
 	else{
 		echo "Login Fail";
 	}
+	
 }
-?>
+?>					
 					
-					</div><!-- end Login form -->
+					
+					
+					
 					<nav>
 						<ul class="boxes">
 							<li class="nav1"><a href="#"><span class="text1">Thanh toán</span> <span class="text2">an toàn</span> </a></li>

@@ -4,7 +4,7 @@
 <title>Chuyển khoản</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" media="all" href="css/chuyenkhoan.css" />
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.message_success').hide();
@@ -142,8 +142,8 @@
 	</tr>
 </table>
 </form>
-<div class="message_success">a</div>
-<div class="message_fail">b</div>  
+<div class="message_success"></div>
+<div class="message_fail"></div>  
 <script type="text/javascript">
 	$('.message_success').hide();
 	$('.message_fail').hide();
