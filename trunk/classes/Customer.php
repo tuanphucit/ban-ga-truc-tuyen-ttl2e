@@ -22,7 +22,7 @@ class Customer{
 		
 		$db = new DB();
 		$db->connect();
-		$sql = "insert into customer(name,address,email,phone,public_key,private_key,password,time,indentity_number) values ('$_name','$_address','$_email','$_phone','$this->pu_key','$this->pr_key',$_inden','$_password','$_time','$_inden')";
+		$sql = "insert into customer(name,address,email,phone,public_key,private_key,password,time,indentity_number) values ('$_name','$_address','$_email','$_phone','$this->pu_key','$this->pr_key','$_password','$_time','$_inden')";
 		$db->runQuery($sql);
 		$db->close();
 	
@@ -33,10 +33,10 @@ class Customer{
 		$this->id_customer = $customerID;
 		$db = new DB();
 		$db->connect();
+		if ($customerName !=0 )
+			$sql = "select * from  customer where name = '{$this->name}'";
 		if ($customerID !=0 )
 			$sql = "select * from  customer where id_customer = '{$this->id_customer}'";
-		else
-			$sql = "select * from  customer where name = '{$this->name}'";
 		$result = $db->runQuery($sql);
 		
 		while($row = mysql_fetch_array($result,MYSQL_ASSOC ))

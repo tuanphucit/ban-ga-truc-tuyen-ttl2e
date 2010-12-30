@@ -41,9 +41,9 @@ Email:		<input type="text" name = "email" size="25"/> <br />
 	else 
 	{
 		$cus = new Customer();
-		$date = date(y/m/d);
+		$date = date('Y-m-d');
 		// tao khoa  cho tai khoan vua tao
-		$cus->addUser($name, $addr, $email, $phone,$pu_key,$pr_key,$pass,$date ,$inden);
+		$cus->addUser($name, $addr, $email, $phone,'12','12',$pass,$date ,$inden);
 		echo "Tạo tài khoản mới thành công <br />";
 	}
 ?>
