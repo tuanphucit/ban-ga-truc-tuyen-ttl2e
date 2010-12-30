@@ -37,7 +37,7 @@ if (isset($_POST['usr'])){
 	$usr = $_POST['usr'];
 	$pwd = $_POST['pwd'];
 	$customer = new Customer();
-	$customer->getInfo($usr);
+	$customer->getInfo(0,$usr);
 	//Login Success
 	if ($customer->password == $pwd){
 		$_SESSION['user'] = $customer->id_customer;

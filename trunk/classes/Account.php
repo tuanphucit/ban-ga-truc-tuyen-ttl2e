@@ -1,5 +1,5 @@
 <?php
-include_once dirname ( __FILE__ ) . "../config/include.inc.php";
+//include_once dirname ( __FILE__ ) . "../config/include.inc.php";
 
 class Account {
 	public $id_account, $id_customer, $balance, $account_number;
@@ -15,10 +15,10 @@ class Account {
 			$sql = "select * from account where id_customer = '$customerID'";
 			$result = $db->runQuery($sql);
 			while($row = mysql_fetch_array($result,MYSQL_ASSOC )){
-				$this->balance = $row[balance];
-				$this->account_number = $row[account_number];
-				$this->id_customer = $row[id_customer];
-				$this->id_account = $row[id_account];
+				$this->balance = $row['balance'];
+				$this->account_number = $row['account_number'];
+				$this->id_customer = $row['id_customer'];
+				$this->id_account = $row['id_account'];
 			}
 			return;
 		}
@@ -26,10 +26,10 @@ class Account {
 			$sql = "select * from account where id_account = '$accountID'";
 			$result = $db->runQuery($sql);
 			while($row = mysql_fetch_array($result,MYSQL_ASSOC )){
-				$this->balance = $row[balance];
-				$this->account_number = $row[account_number];
-				$this->id_customer = $row[id_customer];
-				$this->id_account = $row[id_account];
+				$this->balance = $row['balance'];
+				$this->account_number = $row['account_number'];
+				$this->id_customer = $row['id_customer'];
+				$this->id_account = $row['account'];
 			}
 			}
 		

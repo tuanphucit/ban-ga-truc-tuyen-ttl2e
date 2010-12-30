@@ -1,5 +1,5 @@
 <?php
-include_once dirname(__FILE__)."../config/include.inc.php";
+//include_once dirname(__FILE__)."../config/include.inc.php";
 class Customer{
 	
 	
@@ -25,22 +25,27 @@ class Customer{
 	
 	}
 	
-	public function getInfo($userID){
-		$this->id_customer = $userID;
+	public function getInfo($customerID = 0, $customerName = 0){
+		$this->name = $customerName;
+		$this->id_customer = $customerID;
 		$db = new DB();
 		$db->connect();
-		$sql = "select * from  customer where id_customer = '$this->id_customer'";
+		if ($customerName !=0 )
+			$sql = "select * from  customer where name = '{$this->name}'";
+		if ($customerID !=0 )
+			$sql = "select * from  customer where id_customer = '{$this->id_customer}'";
 		$result = $db->runQuery($sql);
 		
 		while($row = mysql_fetch_array($result,MYSQL_ASSOC ))
 			{
-   				$this->name= $row['name'];
-        		 $this->address = $row['address'];
-        		 $this->email = $row['email'];
-        		 $this->phone = $row['phone'];
-        		 $this->inden =$row['indentity_number'];
-        		 $this->password = $row['password'];
-         	
+   				 $this->id_customer= $row['id_customer'];
+   				 $this->name       = $row['name'];
+        		 $this->address    = $row['address'];
+        		 $this->email      = $row['email'];
+        		 $this->phone      = $row['phone'];
+        		 $this->inden      = $row['indentity_number'];
+        		 $this->password   = $row['password'];
+        		 break;
 			} 
 		
 		
