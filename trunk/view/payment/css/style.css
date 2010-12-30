@@ -74,9 +74,12 @@ header{}
 footer {text-align:center;color:#8d8d8d;padding:22px 0}
 footer a {color:#fff}
 /* forms */
+#LoginForm{padding:5px 10px 10px 20px}
+#LoginForm .input {float:left;width:180px;height:17px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:5px 0 5px 0;color:#000;font:13px Arial, Helvetica, sans-serif}
 #ContactForm {font-size:13px;color:#000;font-weight:bold;line-height:25px}
 #ContactForm .bg, #ContactForm .bg2 {float:right;width:439px;height:21px;border:1px solid #b0b2b6;background:#fff;padding:1px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;behavior:url(js/PIE.htc);position:relative;margin-bottom:5px}
 #ContactForm .bg2 {height:207px}
 #ContactForm a {margin-left:10px;margin-top:10px;float:right}
+
 #ContactForm .input {float:right;width:429px;height:17px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:2px 5px;color:#000;font:13px Arial, Helvetica, sans-serif}
 #ContactForm textarea {overflow:auto;float:right;width:429px;height:203px;background:url(../images/box2.jpg) repeat #f0f1f4;padding:2px 5px;color:#000;font:13px Arial, Helvetica, sans-serif}
