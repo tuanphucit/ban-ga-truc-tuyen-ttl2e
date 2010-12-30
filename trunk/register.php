@@ -176,7 +176,7 @@
 			</footer>
 			<!--footer end-->
 		</div>
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="validation.js"></script>
+	<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>
 </body>
 </html>
