@@ -44,3 +44,23 @@ caption, th {
   font-size:9pt;
   font-weight:bold;
 }
+
+.message_success{
+	background:#008000;
+	color:#FFFFFF;
+  	font-weight:bold; 
+ 	padding:4px; 
+ 	text-align:center;
+ 	float:right;
+ 	width:200px;
+ }   
+ 
+ .message_fail{
+	background:red;
+	color:#FFFFFF;
+  	font-weight:bold; 
+ 	padding:4px; 
+ 	text-align:center;
+ 	float:right;
+ 	width:200px;
+ }  
