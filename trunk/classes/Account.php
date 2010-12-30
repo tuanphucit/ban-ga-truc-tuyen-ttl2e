@@ -17,8 +17,8 @@ class Account {
 			while($row = mysql_fetch_array($result,MYSQL_ASSOC )){
 				$this->balance = $row[balance];
 				$this->account_number = $row[account_number];
-				$this->id_customer = $row[customerID];
-				$this->id_account = $row[account];
+				$this->id_customer = $row[id_customer];
+				$this->id_account = $row[id_account];
 			}
 			return;
 		}
@@ -28,8 +28,8 @@ class Account {
 			while($row = mysql_fetch_array($result,MYSQL_ASSOC )){
 				$this->balance = $row[balance];
 				$this->account_number = $row[account_number];
-				$this->id_customer = $row[customerID];
-				$this->id_account = $row[account];
+				$this->id_customer = $row[id_customer];
+				$this->id_account = $row[id_account];
 			}
 			}
 		

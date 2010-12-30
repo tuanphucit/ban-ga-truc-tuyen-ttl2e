@@ -29,7 +29,7 @@ class Customer{
 		$this->id_customer = $userID;
 		$db = new DB();
 		$db->connect();
-		$sql = "select * from  customer where id_customer = $this->id_customer";
+		$sql = "select * from  customer where id_customer = '$this->id_customer'";
 		$result = $db->runQuery($sql);
 		
 		while($row = mysql_fetch_array($result,MYSQL_ASSOC ))
