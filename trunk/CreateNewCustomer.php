@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Login</title>
@@ -33,7 +33,7 @@ Email:		<input type="text" name = "email" size="25"/> <br />
 	$phone = $_POST['phone'];
 	
 	$db = new DB();
-	$sql = "select * from customer where indentity_number ='$inden'";
+	$sql = "select * from customer where email ='$email'";
 	$result = $db->runQuery($sql);
 	if(mysql_num_rows($result)!=""){
 		echo "Tài khoản này đã tồn tại<br />";
@@ -41,7 +41,9 @@ Email:		<input type="text" name = "email" size="25"/> <br />
 	else 
 	{
 		$cus = new Customer();
-		$cus->addUser($name, $addr, $email, $phone, $inden, $pass);
+		$date = date(y/m/d);
+		// tao khoa  cho tai khoan vua tao
+		$cus->addUser($name, $addr, $email, $phone,$pu_key,$pr_key,$pass,$date ,$inden);
 		echo "Tạo tài khoản mới thành công <br />";
 	}
 ?>

@@ -3,12 +3,12 @@
 class Customer{
 	
 	
-	public $id_customer,$name,$address,$email, $phone, $inden , $password;
+	public $id_customer,$name,$address,$email, $phone, $inden , $password , $pu_key, $pr_key, $time;
 	
 	public function __construct(){
 		
 	}
-	public function addUser($_name, $_address, $_email, $_phone, $_inden, $_password){
+	public function addUser($_name, $_address, $_email, $_phone,$pu_key,$pr_key , $_password,$_time,$_inden){
 		
 		$this->name = $_name;
 		$this->address = $_address;
@@ -16,10 +16,13 @@ class Customer{
 		$this->phone = $_phone;
 		$this->inden = $_inden;
 		$this->password = $_password;
+		$this->pu_key = $pu_key;
+		$this->pr_key =$pr_key;
+		$this->time = $_time;
 		
 		$db = new DB();
 		$db->connect();
-		$sql = "insert into customer(name,address,email,phone,indentity_number,password) values ('$_name','$_address','$_email','$_phone','$_inden','$_password')";
+		$sql = "insert into customer(name,address,email,phone,public_key,private_key,password,time,indentity_number) values ('$_name','$_address','$_email','$_phone','$this->pu_key','$this->pr_key',$_inden','$_password','$_time','$_inden')";
 		$db->runQuery($sql);
 		$db->close();
 	
@@ -45,6 +48,9 @@ class Customer{
         		 $this->phone      = $row['phone'];
         		 $this->inden      = $row['indentity_number'];
         		 $this->password   = $row['password'];
+        		 $this->pu_key =$row['public_key'];
+        		 $this->pr_key =$row['private_key'];
+        		 $this->time = $row['time'];
         		 break;
 			} 
 		
