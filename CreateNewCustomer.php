@@ -43,7 +43,7 @@ Email:		<input type="text" name = "email" size="25"/> <br />
 		$cus = new Customer();
 		$date = date('Y-m-d');
 		// tao khoa  cho tai khoan vua tao
-		$cus->addUser($name, $addr, $email, $phone,'12','12',$pass,$date ,$inden);
+		$cus->addUser($name, $addr, $email, $phone,$pass,$date ,$inden);
 		echo "Tạo tài khoản mới thành công <br />";
 	}
 ?>
