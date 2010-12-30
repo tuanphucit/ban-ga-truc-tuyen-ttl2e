@@ -4,6 +4,13 @@
 <title>Chuyển khoản</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" media="all" href="css/chuyenkhoan.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#message_success').hide();
+		$('#message_fail').hide();
+	}	
+</script>
 </head>
 <body>
 
@@ -135,6 +142,16 @@
 	</tr>
 </table>
 </form>
-
+<div class="message_success">a</div>
+<div class="message_fail">b</div>  
+<?php
+	if (isset($_POST['taikhoanghi']) && isset($_POST['amount'])){
+		$taikhoanghi = $_POST['taikhoanghi'];
+		$amout       = $_POST['amount'];
+		
+		
+		echo $taikhoanghi.$amout;
+	}
+?>
 </body>
 </html>
