@@ -36,13 +36,13 @@ class Customer{
 		
 	//}
 	public function addUser($_name, $_address, $_email, $_phone,$_password,$_time,$_inden){
-		
+		$_password = md5($_password);
 		$this->name = $_name;
 		$this->address = $_address;
 		$this->email = $_email;
 		$this->phone = $_phone;
 		$this->inden = $_inden;
-		$this->password = $_password;
+		$this->password = md5($_password);
 		
 		$this->getKey();
 	
@@ -64,15 +64,15 @@ class Customer{
 	
 	}
 	
-	public function getInfo($customerID = 0, $customerName = 0){
-		$this->name = $customerName;
+	public function getInfo($customerID = 0, $email = 0){
+		$this->email = $email;
 		$this->id_customer = $customerID;
 		$db = new DB();
 		$db->connect();
 		if ($customerID !=0 )
 			$sql = "select * from  customer where id_customer = '{$this->id_customer}'";
 		else
-			$sql = "select * from  customer where name = '{$this->name}'";
+			$sql = "select * from  customer where email = '{$this->email}'";
 		$result = $db->runQuery($sql);
 		
 		while($row = mysql_fetch_array($result,MYSQL_ASSOC ))
